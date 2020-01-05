@@ -4,7 +4,7 @@ import turtle
 wn = turtle.Screen()
 wn.title("Pong Game")
 wn.bgcolor("black")
-wn.setup(width=800,height=800)
+wn.setup(width=800,height=600)
 wn.tracer(0)
 
 #Paddle A
@@ -72,5 +72,23 @@ while True:
     #Moving ball
     ball.setx(ball.xcor()+ball.dx)
     ball.sety(ball.ycor()+ball.dy)
+
+    #Border checking
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *= -1
+
+    if ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *= -1
+
+    if ball.xcor() > 390:
+        ball.goto(0,0)
+        ball.dx *= -1
+
+    if ball.xcor() < -390:
+        ball.goto(0,0)
+        ball.dx *= -1
+
 
 
